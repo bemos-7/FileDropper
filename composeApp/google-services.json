@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "583424224990",
-    "project_id": "filedropper-a683a",
-    "storage_bucket": "filedropper-a683a.appspot.com"
+    "project_number": "239433515124",
+    "project_id": "filedropper-37014",
+    "storage_bucket": "filedropper-37014.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:583424224990:android:b823f6d7bd86fa00ec1c4f",
+        "mobilesdk_app_id": "1:239433515124:android:f7710c4586985a7f8f9121",
         "android_client_info": {
           "package_name": "com.bemos.filedrop"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBZzoewJBT7uf74Y-4ln5VXmKh4yy3Q3Oo"
+          "current_key": "AIzaSyCDmIntxsjQ-5JCuJZNAxSD2LZ00wHspv4"
         }
       ],
       "services": {
