@@ -10,8 +10,6 @@ plugins {
     id("com.google.gms.google-services")
 }
 
-
-
 kotlin {
     androidTarget {
         @OptIn(ExperimentalKotlinGradlePluginApi::class)
@@ -29,6 +27,8 @@ kotlin {
             implementation(libs.androidx.activity.compose)
             implementation(libs.firebase.bom)
             implementation(libs.firebase.storage)
+            implementation (libs.firebase.firestore.ktx)
+            implementation(libs.firebase.database)
         }
         commonMain.dependencies {
             implementation(compose.runtime)
@@ -44,6 +44,13 @@ kotlin {
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
             implementation(libs.kotlinx.coroutines.swing)
+            implementation(libs.ktor.client.cio)
+            implementation(libs.ktor.client.json)
+            implementation(libs.ktor.client.serialization)
+            implementation(libs.ktor.client.logging)
+            implementation(libs.kotlinx.serialization.json)
+            implementation(libs.ktor.client.content.negotiation)
+            implementation(libs.ktor.serialization.kotlinx.json)
         }
     }
 }
@@ -73,10 +80,14 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+    dependencies {
+
+    }
 }
 
 dependencies {
     implementation(libs.firebase.storage.ktx)
+    implementation(libs.google.firebase.firestore.ktx)
     debugImplementation(compose.uiTooling)
 }
 
