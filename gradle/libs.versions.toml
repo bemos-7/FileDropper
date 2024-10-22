@@ -1,5 +1,5 @@
 [versions]
-agp = "8.6.0"
+agp = "8.2.0"
 android-compileSdk = "34"
 android-minSdk = "24"
 android-targetSdk = "34"
@@ -16,6 +16,9 @@ composeBom = "2024.10.00"
 firebaseBom = "33.4.0"
 firebaseDatabase = "21.0.0"
 junit = "4.13.2"
+koinAndroid = "4.0.0"
+koinCore = "4.0.0"
+koinCoreJvm = "4.0.0"
 kotlin = "2.0.20"
 kotlinx-coroutines = "1.9.0"
 kotlinxSerializationJson = "1.5.1"
@@ -28,6 +31,7 @@ ktorSerializationKotlinxJson = "2.3.7"
 lifecycleRuntimeKtx = "2.8.6"
 firebaseStorageKtx = "21.0.1"
 firebaseFirestoreKtx = "25.1.0"
+lifecycleViewmodelCompose = "2.8.0"
 
 [libraries]
 androidx-compose-bom = { module = "androidx.compose:compose-bom", version.ref = "composeBom" }
@@ -40,6 +44,9 @@ firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "fir
 firebase-database = { module = "com.google.firebase:firebase-database", version.ref = "firebaseDatabase" }
 firebase-firestore-ktx = { module = "com.google.firebase:firebase-firestore-ktx" }
 firebase-storage = { module = "com.google.firebase:firebase-storage" }
+koin-android = { module = "io.insert-koin:koin-android", version.ref = "koinAndroid" }
+koin-core = { module = "io.insert-koin:koin-core", version.ref = "koinCore" }
+koin-core-jvm = { module = "io.insert-koin:koin-core-jvm", version.ref = "koinCoreJvm" }
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -62,6 +69,7 @@ ktor-client-cio = { module = "io.ktor:ktor-client-cio", version.ref = "ktorClien
 ktor-client-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktorClientLogging" }
 ktor-client-serialization = { module = "io.ktor:ktor-client-serialization", version.ref = "ktorClientSerialization" }
 ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktorSerializationKotlinxJson" }
+lifecycle-viewmodel-compose = { module = "org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycleViewmodelCompose" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
