@@ -2,10 +2,11 @@ package com.bemos.filedrop.di.platform
 
 import android.net.Uri
 
-actual class PlatformUri(
+
+class AndroidPlatformUriImpl(
     private val uri: Uri
-) {
-    actual fun getUri(): String {
+) : PlatformUriRepository {
+    override fun getUri(): String {
         return uri.toString()
     }
 }
