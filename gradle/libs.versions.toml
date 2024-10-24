@@ -15,8 +15,12 @@ compose-plugin = "1.6.11"
 composeBom = "2024.10.00"
 firebaseBom = "33.4.0"
 firebaseDatabase = "21.0.0"
+gson = "2.10.1"
 junit = "4.13.2"
 koinAndroid = "4.0.0"
+koinAndroidxViewmodel = "3.4.0"
+koinCompose = "4.0.0"
+koinComposeViewmodel = "4.0.0"
 koinCore = "4.0.0"
 koinCoreJvm = "4.0.0"
 kotlin = "2.0.20"
@@ -32,6 +36,7 @@ lifecycleRuntimeKtx = "2.8.6"
 firebaseStorageKtx = "21.0.1"
 firebaseFirestoreKtx = "25.1.0"
 lifecycleViewmodelCompose = "2.8.0"
+uiToolingPreview = "1.7.0"
 
 [libraries]
 androidx-compose-bom = { module = "androidx.compose:compose-bom", version.ref = "composeBom" }
@@ -44,7 +49,11 @@ firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "fir
 firebase-database = { module = "com.google.firebase:firebase-database", version.ref = "firebaseDatabase" }
 firebase-firestore-ktx = { module = "com.google.firebase:firebase-firestore-ktx" }
 firebase-storage = { module = "com.google.firebase:firebase-storage" }
+gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 koin-android = { module = "io.insert-koin:koin-android", version.ref = "koinAndroid" }
+koin-androidx-viewmodel = { module = "io.insert-koin:koin-androidx-viewmodel", version.ref = "koinAndroidxViewmodel" }
+koin-compose = { module = "io.insert-koin:koin-compose", version.ref = "koinCompose" }
+koin-compose-viewmodel = { module = "io.insert-koin:koin-compose-viewmodel", version.ref = "koinComposeViewmodel" }
 koin-core = { module = "io.insert-koin:koin-core", version.ref = "koinCore" }
 koin-core-jvm = { module = "io.insert-koin:koin-core-jvm", version.ref = "koinCoreJvm" }
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -70,6 +79,7 @@ ktor-client-logging = { module = "io.ktor:ktor-client-logging", version.ref = "k
 ktor-client-serialization = { module = "io.ktor:ktor-client-serialization", version.ref = "ktorClientSerialization" }
 ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktorSerializationKotlinxJson" }
 lifecycle-viewmodel-compose = { module = "org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycleViewmodelCompose" }
+ui-tooling-preview = { module = "org.jetbrains.compose.ui:ui-tooling-preview", version.ref = "uiToolingPreview" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
