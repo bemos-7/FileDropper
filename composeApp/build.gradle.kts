@@ -30,6 +30,7 @@ kotlin {
             implementation (libs.firebase.firestore.ktx)
             implementation(libs.firebase.database)
             implementation(libs.koin.android)
+            implementation(libs.ui.tooling.preview)
         }
         commonMain.dependencies {
             implementation(compose.runtime)
@@ -41,7 +42,11 @@ kotlin {
             implementation(libs.androidx.lifecycle.viewmodel)
             implementation(libs.lifecycle.viewmodel.compose)
             implementation(libs.androidx.lifecycle.runtime.compose)
+            implementation(libs.koin.compose)
+            implementation(libs.koin.compose.viewmodel)
             implementation(libs.koin.core)
+            implementation(libs.gson)
+            implementation(libs.ui.tooling.preview)
         }
         val desktopMain by getting {
             dependencies {
@@ -54,7 +59,9 @@ kotlin {
                 implementation(libs.kotlinx.serialization.json)
                 implementation(libs.ktor.client.content.negotiation)
                 implementation(libs.ktor.serialization.kotlinx.json)
+                implementation(libs.koin.core)
                 implementation(libs.koin.core.jvm)
+                implementation(libs.ui.tooling.preview)
             }
         }
 
