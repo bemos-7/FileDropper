@@ -12,6 +12,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.platform.LocalContext
+import com.bemos.filedrop.di.platform.AndroidPlatformUriImpl
 import com.bemos.filedrop.firebase.impl.FirebaseAndroidStorageImpl
 
 @Composable
@@ -24,7 +25,7 @@ fun UploadFileScreen() {
         contract = ActivityResultContracts.OpenDocument()
     ) { uri: Uri? ->
         selectedFileUri = uri
-        FirebaseAndroidStorageImpl().uploadFile(selectedFileUri!!, fileName = getFileName(context,
+        FirebaseAndroidStorageImpl().uploadFile(AndroidPlatformUriImpl(selectedFileUri!!), fileName = getFileName(context,
             selectedFileUri!!
         ).toString())
     }
