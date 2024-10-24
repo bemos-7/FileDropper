@@ -1,6 +1,7 @@
 package com.bemos.filedrop.firebase.impl
 
-import com.bemos.filedrop.firebase.repo.FirebaseDesktopStorageRepository
+import com.bemos.filedrop.di.platform.PlatformUriRepository
+import com.bemos.filedrop.repository.FirebaseRepository
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.cio.CIO
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
@@ -10,7 +11,11 @@ import io.ktor.client.statement.bodyAsText
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
 
-class FirebaseDesktopStorageImpl : FirebaseDesktopStorageRepository{
+class FirebaseDesktopStorageImpl : FirebaseRepository{
+    override fun uploadFile(fileUri: PlatformUriRepository, fileName: String) {
+
+    }
+
     override suspend fun fetchFiles(): String {
         val projectId = "filedropper-37014"
         val collection = "files"
