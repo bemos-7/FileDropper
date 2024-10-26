@@ -14,6 +14,7 @@ class App : Application() {
         super.onCreate()
         Firebase.initialize(this)
         startKoin {
+            androidLogger()
             androidContext(this@App)
             modules(commonModule, androidModule)
         }

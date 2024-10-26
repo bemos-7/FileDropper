@@ -12,7 +12,7 @@ import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
 
 class FirebaseDesktopStorageImpl : FirebaseRepository{
-    override fun uploadFile(fileUri: PlatformUriRepository, fileName: String) {
+    override fun uploadFile(fileUri: PlatformUriRepository, fileName: String, onComplete: () -> Unit) {
 
     }
 

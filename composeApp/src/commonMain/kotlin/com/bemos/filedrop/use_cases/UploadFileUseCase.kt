@@ -8,11 +8,13 @@ class UploadFileUseCase(
 ) {
     fun execute(
         fileUri: PlatformUriRepository,
-        fileName: String
+        fileName: String,
+        onComplete: () -> Unit
     ) {
         repository.uploadFile(
             fileUri,
-            fileName
+            fileName,
+            onComplete
         )
     }
 }

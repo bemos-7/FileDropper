@@ -27,7 +27,7 @@ class FirebaseAndroidStorageImpl : FirebaseRepository {
 //            }
 //    }
 
-    override fun uploadFile(fileUri: PlatformUriRepository, fileName: String) {
+    override fun uploadFile(fileUri: PlatformUriRepository, fileName: String, onComplete: () -> Unit) {
         val storage = FirebaseStorage.getInstance()
         val storageRef = storage.reference
         val fileRef = storageRef.child("uploads/${fileName}")
@@ -39,6 +39,7 @@ class FirebaseAndroidStorageImpl : FirebaseRepository {
                 fileRef.downloadUrl.addOnSuccessListener { uri ->
                     saveFileUrlToFireStore(uri.toString(), fileName)
                 }
+                onComplete()
             }
             .addOnFailureListener {
                 Log.d("UploadFileFirebase", "error")

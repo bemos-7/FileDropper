@@ -3,6 +3,7 @@ package com.bemos.filedrop
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import com.bemos.filedrop.di.platform.AndroidPlatformScreenImpl
 import com.bemos.filedrop.screens.uploadFile.UploadFileScreen
 
 class MainActivity : ComponentActivity() {
@@ -11,7 +12,10 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         setContent {
-            UploadFileScreen()
+            AppUi(
+                uploadFileScreen = AndroidPlatformScreenImpl(),
+                onDownloadClick = {}
+            )
         }
     }
 }
