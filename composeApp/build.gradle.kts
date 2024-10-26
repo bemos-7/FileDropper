@@ -31,6 +31,7 @@ kotlin {
             implementation(libs.firebase.database)
             implementation(libs.koin.android)
             implementation(libs.ui.tooling.preview)
+            implementation(libs.msz.progress.indicator)
         }
         commonMain.dependencies {
             implementation(compose.runtime)
@@ -47,6 +48,8 @@ kotlin {
             implementation(libs.koin.core)
             implementation(libs.gson)
             implementation(libs.ui.tooling.preview)
+            implementation(libs.navigation.compose)
+            implementation(libs.coil.compose)
         }
         val desktopMain by getting {
             dependencies {
