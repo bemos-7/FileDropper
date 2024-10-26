@@ -30,11 +30,3 @@ fun UploadFileContent(
         }
     }
 }
-
-@Preview
-@Composable
-private fun UploadFileContentPreview() {
-    UploadFileContent(
-        onUploadClick = {}
-    )
-}
