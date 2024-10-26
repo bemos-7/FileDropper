@@ -10,11 +10,13 @@ class UploadFileViewModel(
 
     fun uploadFile(
         fileUri: PlatformUriRepository,
-        fileName: String
+        fileName: String,
+        onComplete: () -> Unit
     ) {
         uploadFileUseCase.execute(
             fileUri = fileUri,
-            fileName = fileName
+            fileName = fileName,
+            onComplete = onComplete
         )
     }
 
