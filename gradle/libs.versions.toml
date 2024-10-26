@@ -11,6 +11,7 @@ androidx-espresso-core = "3.6.1"
 androidx-lifecycle = "2.8.2"
 androidx-material = "1.12.0"
 androidx-test-junit = "1.2.1"
+coilCompose = "3.0.0-alpha06"
 compose-plugin = "1.6.11"
 composeBom = "2024.10.00"
 firebaseBom = "33.4.0"
@@ -18,6 +19,8 @@ firebaseDatabase = "21.0.0"
 gson = "2.10.1"
 junit = "4.13.2"
 koinAndroid = "4.0.0"
+koinAndroidViewmodel = "4.0.0"
+koinAndroidxCompose = "4.0.0"
 koinAndroidxViewmodel = "3.4.0"
 koinCompose = "4.0.0"
 koinComposeViewmodel = "4.0.0"
@@ -36,6 +39,8 @@ lifecycleRuntimeKtx = "2.8.6"
 firebaseStorageKtx = "21.0.1"
 firebaseFirestoreKtx = "25.1.0"
 lifecycleViewmodelCompose = "2.8.0"
+mszProgressIndicator = "0.8.0"
+navigationCompose = "2.7.0-alpha07"
 uiToolingPreview = "1.7.0"
 
 [libraries]
@@ -45,13 +50,15 @@ androidx-material3 = { module = "androidx.compose.material3:material3" }
 androidx-ui-graphics = { module = "androidx.compose.ui:ui-graphics" }
 androidx-ui = { module = "androidx.compose.ui:ui" }
 androidx-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview" }
+coil-compose = { module = "io.coil-kt.coil3:coil-compose", version.ref = "coilCompose" }
 firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
 firebase-database = { module = "com.google.firebase:firebase-database", version.ref = "firebaseDatabase" }
 firebase-firestore-ktx = { module = "com.google.firebase:firebase-firestore-ktx" }
 firebase-storage = { module = "com.google.firebase:firebase-storage" }
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 koin-android = { module = "io.insert-koin:koin-android", version.ref = "koinAndroid" }
-koin-androidx-viewmodel = { module = "io.insert-koin:koin-androidx-viewmodel", version.ref = "koinAndroidxViewmodel" }
+koin-androidx-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koinAndroidxCompose" }
+koin-android-viewmodel = { module = "io.insert-koin:koin-android-viewmodel", version.ref = "koinAndroidViewmodel" }
 koin-compose = { module = "io.insert-koin:koin-compose", version.ref = "koinCompose" }
 koin-compose-viewmodel = { module = "io.insert-koin:koin-compose-viewmodel", version.ref = "koinComposeViewmodel" }
 koin-core = { module = "io.insert-koin:koin-core", version.ref = "koinCore" }
@@ -79,6 +86,8 @@ ktor-client-logging = { module = "io.ktor:ktor-client-logging", version.ref = "k
 ktor-client-serialization = { module = "io.ktor:ktor-client-serialization", version.ref = "ktorClientSerialization" }
 ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktorSerializationKotlinxJson" }
 lifecycle-viewmodel-compose = { module = "org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycleViewmodelCompose" }
+msz-progress-indicator = { module = "com.ehsanmsz:msz-progress-indicator", version.ref = "mszProgressIndicator" }
+navigation-compose = { module = "org.jetbrains.androidx.navigation:navigation-compose", version.ref = "navigationCompose" }
 ui-tooling-preview = { module = "org.jetbrains.compose.ui:ui-tooling-preview", version.ref = "uiToolingPreview" }
 
 [plugins]
