@@ -10,8 +10,9 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
-fun ListOfFilesScreen() {
-
+fun ListOfFilesScreen(
+    onDownloadClick: (String) -> Unit
+) {
     val viewModel: ListOfFilesViewModel = koinViewModel()
     val extractedFiles by viewModel.extractedFiles.collectAsState()
 
@@ -20,7 +21,9 @@ fun ListOfFilesScreen() {
     }
 
     ListOfFilesContent(
-        filesList = extractedFiles
+        filesList = extractedFiles,
+        onDownloadClick = {
+            onDownloadClick(it)
+        }
     )
-
 }
