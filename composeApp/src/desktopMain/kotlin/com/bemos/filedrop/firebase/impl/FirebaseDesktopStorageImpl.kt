@@ -1,6 +1,7 @@
 package com.bemos.filedrop.firebase.impl
 
 import com.bemos.filedrop.di.platform.PlatformUriRepository
+import com.bemos.filedrop.models.DocumentAndroid
 import com.bemos.filedrop.repository.FirebaseRepository
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.cio.CIO
@@ -16,7 +17,7 @@ class FirebaseDesktopStorageImpl : FirebaseRepository{
 
     }
 
-    override suspend fun fetchFiles(): String {
+    override suspend fun fetchFiles(onComplete: (List<DocumentAndroid>) -> Unit): String {
         val projectId = "filedropper-37014"
         val collection = "files"
         val apiKey = "AIzaSyCDmIntxsjQ-5JCuJZNAxSD2LZ00wHspv4"
