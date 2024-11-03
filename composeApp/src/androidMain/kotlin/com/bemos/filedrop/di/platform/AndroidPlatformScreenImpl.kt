@@ -12,13 +12,9 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.platform.LocalContext
-import com.bemos.filedrop.firebase.impl.FirebaseAndroidStorageImpl
 import com.bemos.filedrop.screens.uploadFile.UploadFileContent
 import com.bemos.filedrop.screens.uploadFile.vm.UploadFileViewModel
-import com.ehsanmsz.mszprogressindicator.progressindicator.BallPulseProgressIndicator
-import com.ehsanmsz.mszprogressindicator.progressindicator.BallScaleProgressIndicator
 import org.koin.compose.viewmodel.koinViewModel
-import java.lang.reflect.Modifier
 
 class AndroidPlatformScreenImpl : PlatformScreensRepository {
     @Composable

@@ -65,6 +65,10 @@ kotlin {
                 implementation(libs.koin.core)
                 implementation(libs.koin.core.jvm)
                 implementation(libs.ui.tooling.preview)
+                implementation(compose.desktop.currentOs) {
+                    exclude("org.jetbrains.compose.material")
+                }
+                implementation("com.bybutter.compose:compose-jetbrains-expui-theme:2.0.0")
             }
         }
 
@@ -115,6 +119,7 @@ compose.desktop {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
             packageName = "com.bemos.filedrop"
             packageVersion = "1.0.0"
+            modules("jdk.unsupported")
         }
     }
 }
