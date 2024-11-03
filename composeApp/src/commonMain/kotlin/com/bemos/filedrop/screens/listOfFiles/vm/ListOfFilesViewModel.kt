@@ -2,6 +2,7 @@ package com.bemos.filedrop.screens.listOfFiles.vm
 
 import androidx.lifecycle.ViewModel
 import com.bemos.filedrop.models.Document
+import com.bemos.filedrop.models.DocumentAndroid
 import com.bemos.filedrop.use_cases.FetchFilesUseCase
 import com.google.gson.Gson
 import com.google.gson.JsonObject
@@ -14,12 +15,21 @@ class ListOfFilesViewModel(
 ) : ViewModel() {
 
     val extractedFiles = MutableStateFlow<List<Document>>(listOf())
+    val extractedFilesAndroid = MutableStateFlow<List<DocumentAndroid>>(listOf())
 
     suspend fun fetchFiles() {
-        val json = fetchFilesUseCase.execute()
-        val documents = fromJsonToDocuments(json)
-        extractedFiles.update {
-            documents
+        val json = fetchFilesUseCase.execute(
+            onComplete = { files ->
+                extractedFilesAndroid.update {
+                    files
+                }
+            }
+        )
+        if (json.isNotEmpty()) {
+            val documents = fromJsonToDocuments(json)
+            extractedFiles.update {
+                documents
+            }
         }
     }
 
