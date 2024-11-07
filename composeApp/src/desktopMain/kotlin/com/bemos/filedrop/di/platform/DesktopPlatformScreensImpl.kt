@@ -10,6 +10,9 @@ class DesktopPlatformScreensImpl() : PlatformScreensRepository {
         UploadFileContent(
             onUploadClick = {
 
+            },
+            onFilesClick = {
+
             }
         )
     }
