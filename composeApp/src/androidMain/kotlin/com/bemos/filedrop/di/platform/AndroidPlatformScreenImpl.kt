@@ -12,6 +12,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.platform.LocalContext
+import androidx.navigation.compose.rememberNavController
 import com.bemos.filedrop.screens.uploadFile.UploadFileContent
 import com.bemos.filedrop.screens.uploadFile.vm.UploadFileViewModel
 import org.koin.compose.viewmodel.koinViewModel
@@ -33,6 +34,9 @@ class AndroidPlatformScreenImpl : PlatformScreensRepository {
         UploadFileContent(
             onUploadClick = {
                 filePickerLauncher.launch(arrayOf("*/*"))
+            },
+            onFilesClick = {
+
             }
         )
         if (selectedFileUri != null) {

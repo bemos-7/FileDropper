@@ -26,7 +26,7 @@ fun AppUi(
         NavHost(
             modifier = modifier,
             navController = navController,
-            startDestination = "listOfFiles"
+            startDestination = "uploadFile"
         ) {
             uploadFile(
                 uploadFileScreen

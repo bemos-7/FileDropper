@@ -4,24 +4,14 @@ android-compileSdk = "34"
 android-minSdk = "24"
 android-targetSdk = "34"
 androidx-activityCompose = "1.9.3"
-androidx-appcompat = "1.7.0"
-androidx-constraintlayout = "2.1.4"
-androidx-core-ktx = "1.13.1"
-androidx-espresso-core = "3.6.1"
 androidx-lifecycle = "2.8.2"
-androidx-material = "1.12.0"
-androidx-test-junit = "1.2.1"
 coilCompose = "3.0.0-alpha06"
 compose-plugin = "1.6.11"
-composeBom = "2024.10.00"
-firebaseBom = "33.4.0"
+composeJetbrainsExpuiTheme = "2.2.0"
+firebaseBom = "33.5.1"
 firebaseDatabase = "21.0.0"
 gson = "2.10.1"
-junit = "4.13.2"
 koinAndroid = "4.0.0"
-koinAndroidViewmodel = "4.0.0"
-koinAndroidxCompose = "4.0.0"
-koinAndroidxViewmodel = "3.4.0"
 koinCompose = "4.0.0"
 koinComposeViewmodel = "4.0.0"
 koinCore = "4.0.0"
@@ -35,43 +25,26 @@ ktorClientNegotitaion = "2.3.7"
 ktorClientSerialization = "2.3.2"
 ktorClientLogging = "2.3.2"
 ktorSerializationKotlinxJson = "2.3.7"
-lifecycleRuntimeKtx = "2.8.6"
 firebaseStorageKtx = "21.0.1"
-firebaseFirestoreKtx = "25.1.0"
+firebaseFirestoreKtx = "25.1.1"
 lifecycleViewmodelCompose = "2.8.0"
 mszProgressIndicator = "0.8.0"
 navigationCompose = "2.7.0-alpha07"
 uiToolingPreview = "1.7.0"
 
 [libraries]
-androidx-compose-bom = { module = "androidx.compose:compose-bom", version.ref = "composeBom" }
-androidx-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
-androidx-material3 = { module = "androidx.compose.material3:material3" }
-androidx-ui-graphics = { module = "androidx.compose.ui:ui-graphics" }
-androidx-ui = { module = "androidx.compose.ui:ui" }
-androidx-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview" }
 coil-compose = { module = "io.coil-kt.coil3:coil-compose", version.ref = "coilCompose" }
+compose-jetbrains-expui-theme = { module = "com.bybutter.compose:compose-jetbrains-expui-theme", version.ref = "composeJetbrainsExpuiTheme" }
 firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
 firebase-database = { module = "com.google.firebase:firebase-database", version.ref = "firebaseDatabase" }
 firebase-firestore-ktx = { module = "com.google.firebase:firebase-firestore-ktx" }
 firebase-storage = { module = "com.google.firebase:firebase-storage" }
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 koin-android = { module = "io.insert-koin:koin-android", version.ref = "koinAndroid" }
-koin-androidx-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koinAndroidxCompose" }
-koin-android-viewmodel = { module = "io.insert-koin:koin-android-viewmodel", version.ref = "koinAndroidViewmodel" }
 koin-compose = { module = "io.insert-koin:koin-compose", version.ref = "koinCompose" }
 koin-compose-viewmodel = { module = "io.insert-koin:koin-compose-viewmodel", version.ref = "koinComposeViewmodel" }
 koin-core = { module = "io.insert-koin:koin-core", version.ref = "koinCore" }
 koin-core-jvm = { module = "io.insert-koin:koin-core-jvm", version.ref = "koinCoreJvm" }
-kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
-kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
-junit = { group = "junit", name = "junit", version.ref = "junit" }
-androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "androidx-core-ktx" }
-androidx-test-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-junit" }
-androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "androidx-espresso-core" }
-androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "androidx-appcompat" }
-androidx-material = { group = "com.google.android.material", name = "material", version.ref = "androidx-material" }
-androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "androidx-constraintlayout" }
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
 androidx-lifecycle-viewmodel = { group = "org.jetbrains.androidx.lifecycle", name = "lifecycle-viewmodel", version.ref = "androidx-lifecycle" }
 androidx-lifecycle-runtime-compose = { group = "org.jetbrains.androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "androidx-lifecycle" }

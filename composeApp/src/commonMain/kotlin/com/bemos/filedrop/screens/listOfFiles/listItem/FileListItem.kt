@@ -24,6 +24,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.bemos.filedrop.models.Document
+import com.bemos.filedrop.models.DocumentJson
 import com.bemos.filedrop.screens.util.theme.Colors.Light_Black
 import com.bemos.filedrop.screens.util.theme.Colors.White
 import kotlinproject.composeapp.generated.resources.Res
@@ -63,7 +64,7 @@ fun FileListItem(
                 )
 
                 Text(
-                    text = file.fields.fileName.stringValue,
+                    text = file.fileName,
                     color = Color.White
                 )
             }
@@ -76,7 +77,7 @@ fun FileListItem(
                     modifier = Modifier.size(32.dp)
                         .clip(RoundedCornerShape(5.dp))
                         .clickable {
-                        onDownloadClick(file.fields.fileUrl.stringValue)
+                        onDownloadClick(file.fileUrl)
                     },
                     painter = painterResource(Res.drawable.outline_file_download),
                     tint = White,
