@@ -69,6 +69,7 @@ kotlin {
                     exclude("org.jetbrains.compose.material")
                 }
                 implementation(libs.compose.jetbrains.expui.theme)
+                implementation(libs.mpfilepicker)
             }
         }
 

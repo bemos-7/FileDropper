@@ -13,6 +13,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
 import androidx.compose.ui.window.rememberWindowState
+import androidx.navigation.compose.rememberNavController
 import com.bemos.filedrop.di.commonModule
 import com.bemos.filedrop.di.desktopModule
 import com.bemos.filedrop.di.platform.DesktopPlatformScreensImpl
@@ -59,7 +60,9 @@ fun main() = application {
             }
         }
     ) {
+        val navController = rememberNavController()
         AppUi(
+            navController = navController,
             uploadFileScreen = DesktopPlatformScreensImpl(),
             onDownloadClick = { url ->
                 openLink(url)

@@ -12,6 +12,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.platform.LocalContext
+import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.bemos.filedrop.screens.uploadFile.UploadFileContent
 import com.bemos.filedrop.screens.uploadFile.vm.UploadFileViewModel
@@ -19,24 +20,29 @@ import org.koin.compose.viewmodel.koinViewModel
 
 class AndroidPlatformScreenImpl : PlatformScreensRepository {
     @Composable
-    override fun UploadFileScreen() {
+    override fun UploadFileScreen(navController: NavController) {
         val context = LocalContext.current
         var selectedFileUri by remember { mutableStateOf<Uri?>(null) }
-
         val viewModel: UploadFileViewModel = koinViewModel()
 
         val filePickerLauncher = rememberLauncherForActivityResult(
             contract = ActivityResultContracts.OpenDocument()
         ) { uri: Uri? ->
             selectedFileUri = uri
-            (viewModel.uploadFile(fileUri = AndroidPlatformUriImpl(uri!!), fileName = getFileName(context, selectedFileUri!!)!!, onComplete = {})).toString()
+            (viewModel.uploadFile(
+                fileUri = AndroidPlatformUriImpl(uri!!),
+                fileName = getFileName(context, selectedFileUri!!)!!,
+                onComplete = {
+                    // FIXME добавить обработку
+                }
+            )).toString()
         }
         UploadFileContent(
             onUploadClick = {
                 filePickerLauncher.launch(arrayOf("*/*"))
             },
             onFilesClick = {
-
+                navController.navigate("listOfFiles")
             }
         )
         if (selectedFileUri != null) {
