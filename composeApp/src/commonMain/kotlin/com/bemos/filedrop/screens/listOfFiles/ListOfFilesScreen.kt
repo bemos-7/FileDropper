@@ -4,9 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.bemos.filedrop.screens.listOfFiles.vm.ListOfFilesViewModel
-import org.jetbrains.compose.ui.tooling.preview.Preview
 import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
@@ -24,6 +22,9 @@ fun ListOfFilesScreen(
         filesList = extractedFiles,
         onDownloadClick = {
             onDownloadClick(it)
+        },
+        onRefresh = {
+            viewModel.fetchFilesScope()
         }
     )
 }
