@@ -1,4 +1,4 @@
-package com.bemos.filedrop.screens.util.theme.buttons
+package com.bemos.filedrop.screens.util.theme.ui
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.RowScope
