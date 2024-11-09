@@ -8,6 +8,7 @@ import androidx.activity.compose.setContent
 import androidx.navigation.compose.rememberNavController
 import com.bemos.filedrop.di.platform.AndroidPlatformScreenImpl
 import com.bemos.filedrop.screens.uploadFile.UploadFileScreen
+import com.bemos.ui.theme.FileDropperTheme
 
 class MainActivity : ComponentActivity() {
 
@@ -15,15 +16,17 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             val navController = rememberNavController()
-            AppUi(
-                navController = navController,
-                uploadFileScreen = AndroidPlatformScreenImpl(),
-                onDownloadClick = { stringUrl ->
-                    startActivity(
-                        Intent(Intent.ACTION_VIEW, Uri.parse(stringUrl))
-                    )
-                }
-            )
+            FileDropperTheme {
+                AppUi(
+                    navController = navController,
+                    uploadFileScreen = AndroidPlatformScreenImpl(),
+                    onDownloadClick = { stringUrl ->
+                        startActivity(
+                            Intent(Intent.ACTION_VIEW, Uri.parse(stringUrl))
+                        )
+                    }
+                )
+            }
         }
     }
 }
