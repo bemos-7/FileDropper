@@ -1,6 +1,7 @@
 package com.bemos.filedrop.screens.listOfFiles.vm
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.bemos.filedrop.models.DocumentJson
 import com.bemos.filedrop.models.Document
 import com.bemos.filedrop.use_cases.FetchFilesUseCase
@@ -9,6 +10,7 @@ import com.google.gson.JsonObject
 import com.google.gson.reflect.TypeToken
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
 
 class ListOfFilesViewModel(
     private val fetchFilesUseCase: FetchFilesUseCase
@@ -30,6 +32,13 @@ class ListOfFilesViewModel(
                 documents
             }
         }
+    }
+
+    fun fetchFilesScope() = viewModelScope.launch {
+        extractedFiles.update {
+            listOf()
+        }
+        fetchFiles()
     }
 
     private fun fromJsonToDocuments(json: String) : List<Document> {
