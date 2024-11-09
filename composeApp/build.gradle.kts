@@ -109,6 +109,7 @@ android {
 dependencies {
     implementation(libs.firebase.storage.ktx)
     implementation(libs.google.firebase.firestore.ktx)
+    implementation(libs.androidx.material3.android)
     debugImplementation(compose.uiTooling)
 }
 
