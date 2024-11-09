@@ -2,24 +2,23 @@ package com.bemos.filedrop.screens.listOfFiles
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import com.bemos.filedrop.models.Document
-import com.bemos.filedrop.screens.listOfFiles.listItem.FileListItem
 import com.bemos.filedrop.screens.util.theme.Colors.Black
+import com.bemos.filedrop.screens.util.theme.ui.PullToRefreshLazyColumn
 
 @Composable
 fun ListOfFilesContent(
     filesList: List<Document>,
-    onDownloadClick: (String) -> Unit
+    onDownloadClick: (String) -> Unit,
+    onRefresh: () -> Unit
 ) {
     Column(
         modifier = Modifier
@@ -27,22 +26,35 @@ fun ListOfFilesContent(
             .background(Black),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        LazyColumn(
-            modifier = Modifier.padding(10.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            item {
-                Spacer(modifier = Modifier.height(20.dp))
-            }
-            items(
-                items = filesList
-            ) {
-                FileListItem(
-                    file = it,
-                    onDownloadClick
-                )
-            }
+        var isRefreshing by remember {
+            mutableStateOf(false)
         }
+//        LazyColumn(
+//            modifier = Modifier.padding(10.dp),
+//            horizontalAlignment = Alignment.CenterHorizontally
+//        ) {
+//            item {
+//                Spacer(modifier = Modifier.height(20.dp))
+//            }
+//            items(
+//                items = filesList
+//            ) {
+//                FileListItem(
+//                    file = it,
+//                    onDownloadClick
+//                )
+//            }
+//        }
+        PullToRefreshLazyColumn(
+            items = filesList,
+            isRefreshing = isRefreshing,
+            onRefresh = {
+                isRefreshing = true
+                onRefresh()
+                isRefreshing = false
+            },
+            onDownloadClick
+        )
     }
 //    Row(
 //        modifier = Modifier
