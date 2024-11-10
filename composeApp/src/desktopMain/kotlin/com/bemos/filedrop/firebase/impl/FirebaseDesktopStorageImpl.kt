@@ -11,6 +11,11 @@ import io.ktor.client.statement.HttpResponse
 import io.ktor.client.statement.bodyAsText
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
+import java.io.File
+
+private const val projectId = "filedropper-37014"
+private const val collection = "files"
+private const val apiKey = "AIzaSyCDmIntxsjQ-5JCuJZNAxSD2LZ00wHspv4"
 
 class FirebaseDesktopStorageImpl : FirebaseRepository{
     override fun uploadFile(fileUri: PlatformUriRepository, fileName: String, onComplete: () -> Unit) {
@@ -18,10 +23,6 @@ class FirebaseDesktopStorageImpl : FirebaseRepository{
     }
 
     override suspend fun fetchFiles(onComplete: (List<Document>) -> Unit): String {
-        val projectId = "filedropper-37014"
-        val collection = "files"
-        val apiKey = "AIzaSyCDmIntxsjQ-5JCuJZNAxSD2LZ00wHspv4"
-
         val client = HttpClient(CIO) {
             install(ContentNegotiation) {
                 json(Json {
