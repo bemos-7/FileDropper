@@ -13,9 +13,10 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
 import com.bemos.filedrop.screens.uploadFile.UploadFileContent
 import com.bemos.filedrop.screens.uploadFile.vm.UploadFileViewModel
+import com.bemos.filedrop.screens.util.Constants.LIST_OF_FILES
+import com.bemos.filedrop.screens.util.theme.ui.CustomProgressBarDialog
 import org.koin.compose.viewmodel.koinViewModel
 
 class AndroidPlatformScreenImpl : PlatformScreensRepository {
@@ -23,26 +24,31 @@ class AndroidPlatformScreenImpl : PlatformScreensRepository {
     override fun UploadFileScreen(navController: NavController) {
         val context = LocalContext.current
         var selectedFileUri by remember { mutableStateOf<Uri?>(null) }
+        var openDialog by remember { mutableStateOf(false) }
         val viewModel: UploadFileViewModel = koinViewModel()
 
         val filePickerLauncher = rememberLauncherForActivityResult(
             contract = ActivityResultContracts.OpenDocument()
         ) { uri: Uri? ->
-            selectedFileUri = uri
-            (viewModel.uploadFile(
-                fileUri = AndroidPlatformUriImpl(uri!!),
-                fileName = getFileName(context, selectedFileUri!!)!!,
-                onComplete = {
-                    // FIXME добавить обработку
-                }
-            )).toString()
+            if (uri != null) {
+                openDialog = true
+                selectedFileUri = uri
+                (viewModel.uploadFile(
+                    fileUri = AndroidPlatformUriImpl(uri),
+                    fileName = getFileName(context, selectedFileUri!!)!!,
+                    onComplete = {
+                        openDialog = false
+                    }
+                )).toString()
+            }
         }
+        CustomProgressBarDialog(openDialog)
         UploadFileContent(
             onUploadClick = {
                 filePickerLauncher.launch(arrayOf("*/*"))
             },
             onFilesClick = {
-                navController.navigate("listOfFiles")
+                navController.navigate(LIST_OF_FILES)
             }
         )
         if (selectedFileUri != null) {
