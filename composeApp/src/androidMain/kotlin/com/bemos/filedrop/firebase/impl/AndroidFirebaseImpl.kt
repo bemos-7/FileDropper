@@ -6,6 +6,8 @@ import com.bemos.filedrop.di.platform.PlatformUriRepository
 import com.bemos.filedrop.models.Document
 import com.bemos.filedrop.models.File
 import com.bemos.filedrop.repository.FirebaseRepository
+import com.bemos.filedrop.screens.util.Constants.FILES
+import com.bemos.filedrop.screens.util.Constants.UPLOADS
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.toObject
 import com.google.firebase.storage.FirebaseStorage
@@ -14,7 +16,7 @@ class AndroidFirebaseImpl : FirebaseRepository {
     override fun uploadFile(fileUri: PlatformUriRepository, fileName: String, onComplete: () -> Unit) {
         val storage = FirebaseStorage.getInstance()
         val storageRef = storage.reference
-        val fileRef = storageRef.child("uploads/${fileName}")
+        val fileRef = storageRef.child("$UPLOADS${fileName}")
         val uploadTask = fileRef.putFile((fileUri.getUri()).toUri())
         uploadTask
             .addOnSuccessListener { taskSnapshot ->
@@ -37,7 +39,7 @@ class AndroidFirebaseImpl : FirebaseRepository {
             fileUrl = downloadUrl
         )
 
-        firestore.collection("files").add(fileData)
+        firestore.collection(FILES).add(fileData)
             .addOnSuccessListener {
                 Log.d("SaveFileUrlToFireStore", "successfully")
             }
@@ -48,7 +50,7 @@ class AndroidFirebaseImpl : FirebaseRepository {
 
     override suspend fun fetchFiles(onComplete: (List<Document>) -> Unit): String {
         val firestore = FirebaseFirestore.getInstance()
-        val fileRef = firestore.collection("files")
+        val fileRef = firestore.collection(FILES)
         fileRef.get()
             .addOnSuccessListener { documents ->
                 val uniqueModels = documents.map { it.toObject<Document>() }

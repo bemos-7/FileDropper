@@ -31,7 +31,6 @@ kotlin {
             implementation(libs.firebase.database)
             implementation(libs.koin.android)
             implementation(libs.ui.tooling.preview)
-            implementation(libs.msz.progress.indicator)
         }
         commonMain.dependencies {
             implementation(compose.runtime)
