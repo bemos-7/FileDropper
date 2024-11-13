@@ -10,15 +10,9 @@ import org.koin.dsl.module
 val commonModule = module {
     single<PlatformUriRepository> { throw NotImplementedError("Platform-specific implementation required") }
 
-//    single<PlatformRepository> { throw NotImplementedError("Platform-specific implementation required") }
-
     single { FetchFilesUseCase(repository = get()) }
 
     factory { ListOfFilesViewModel(fetchFilesUseCase = get()) }
 
     viewModel { ListOfFilesViewModel(fetchFilesUseCase = get()) }
-
-//    single { FetchFilesUseCase(repository = get()) }
-//
-//    viewModel { ListOfFilesViewModel(fetchFilesUseCase = get()) }
 }
