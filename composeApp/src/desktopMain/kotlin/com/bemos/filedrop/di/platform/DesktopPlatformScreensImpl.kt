@@ -7,8 +7,10 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.navigation.NavController
 import com.bemos.filedrop.screens.uploadFile.UploadFileContent
-import com.darkrockstudios.libraries.mpfilepicker.DirectoryPicker
+import com.bemos.filedrop.screens.uploadFile.vm.UploadFileViewModel
 import com.darkrockstudios.libraries.mpfilepicker.FilePicker
+import org.koin.compose.viewmodel.koinViewModel
+import java.io.File
 
 class DesktopPlatformScreensImpl : PlatformScreensRepository {
 
@@ -17,9 +19,16 @@ class DesktopPlatformScreensImpl : PlatformScreensRepository {
         var showFilePicker by remember {
             mutableStateOf(false)
         }
+        val viewModel: UploadFileViewModel = koinViewModel()
         FilePicker(show = showFilePicker) { platformFile ->
             showFilePicker = false
-            println(platformFile)
+            val pathFile = platformFile?.path ?: ""
+            val file = File(pathFile)
+            viewModel.uploadFile(
+                fileUri = DesktopPlatformUriImpl(pathFile),
+                fileName = file.name,
+                onComplete = {}
+            )
         }
         UploadFileContent(
             onUploadClick = {
