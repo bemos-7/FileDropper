@@ -67,6 +67,9 @@ kotlin {
                 implementation(compose.desktop.currentOs) {
                     exclude("org.jetbrains.compose.material")
                 }
+                implementation(libs.retrofit)
+                implementation(libs.converter.gson)
+                implementation(libs.gson)
                 implementation(libs.compose.jetbrains.expui.theme)
                 implementation(libs.mpfilepicker)
             }
