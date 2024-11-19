@@ -60,13 +60,15 @@ class FirebaseDesktopStorageImpl() : FirebaseRepository {
                         }
                     } else {
                         println("DownloadUrl is null")
+                        onComplete()
                     }
                     println("File uploaded successfully: ${response.body()?.string()}")
+                    onComplete()
                 } else {
                     println("Upload failed with code ${response.code()}: ${response.body()?.string()}")
+                    onComplete()
                 }
             }
-
         })
     }
 

@@ -29,22 +29,6 @@ fun ListOfFilesContent(
         var isRefreshing by remember {
             mutableStateOf(false)
         }
-//        LazyColumn(
-//            modifier = Modifier.padding(10.dp),
-//            horizontalAlignment = Alignment.CenterHorizontally
-//        ) {
-//            item {
-//                Spacer(modifier = Modifier.height(20.dp))
-//            }
-//            items(
-//                items = filesList
-//            ) {
-//                FileListItem(
-//                    file = it,
-//                    onDownloadClick
-//                )
-//            }
-//        }
         PullToRefreshLazyColumn(
             items = filesList,
             isRefreshing = isRefreshing,
@@ -56,30 +40,4 @@ fun ListOfFilesContent(
             onDownloadClick
         )
     }
-//    Row(
-//        modifier = Modifier
-//            .fillMaxSize(),
-//        verticalAlignment = Alignment.Bottom
-//    ) {
-//        Column {
-//            Spacer(
-//                modifier = Modifier
-//                    .fillMaxWidth()
-//                    .height(1.dp)
-//                    .background(White)
-//            )
-//            Row(
-//                modifier = Modifier
-//                    .fillMaxWidth()
-//                    .height(15.dp)
-//                    .background(Light_Black),
-//                horizontalArrangement = Arrangement.End
-//            ) {
-//                Text(
-//                    text = "v1.0.0  ",
-//                    color = White
-//                )
-//            }
-//        }
-//    }
 }

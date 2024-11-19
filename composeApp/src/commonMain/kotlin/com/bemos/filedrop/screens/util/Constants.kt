@@ -13,4 +13,6 @@ object Constants {
     const val FILES = "files"
     const val UPLOADS = "uploads/"
 
+    const val DOCUMENTS = "documents"
+
 }

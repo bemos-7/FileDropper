@@ -50,7 +50,8 @@ fun CustomDialogUi() {
             CircularProgressIndicator(
                 modifier = Modifier.size(64.dp),
                 strokeWidth = 8.dp,
-                color = Color.White
+                color = Color.White,
+                backgroundColor = Color.Gray
             )
         }
     }
