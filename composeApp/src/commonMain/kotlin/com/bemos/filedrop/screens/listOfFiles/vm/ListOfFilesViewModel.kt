@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.bemos.filedrop.models.DocumentJson
 import com.bemos.filedrop.models.Document
+import com.bemos.filedrop.screens.util.Constants.DOCUMENTS
 import com.bemos.filedrop.use_cases.FetchFilesUseCase
 import com.google.gson.Gson
 import com.google.gson.JsonObject
@@ -41,17 +42,20 @@ class ListOfFilesViewModel(
         fetchFiles()
     }
 
-    private fun fromJsonToDocuments(json: String) : List<Document> {
-        val jsonObject = Gson().fromJson(json, JsonObject::class.java)
-        val documentJsonArray = jsonObject.getAsJsonArray("documents")
-        val listType = object : TypeToken<List<DocumentJson>>() {}.type
-        val documentJsons: List<DocumentJson> = Gson().fromJson(documentJsonArray, listType)
+    private fun fromJsonToDocuments(json: String?) : List<Document> {
+        if ((json?.trim() ?: "{}") == "{}") return listOf()
+        else {
+            val jsonObject = Gson().fromJson(json, JsonObject::class.java)
+            val documentJsonArray = jsonObject.getAsJsonArray(DOCUMENTS)
+            val listType = object : TypeToken<List<DocumentJson>>() {}.type
+            val documentJsons: List<DocumentJson> = Gson().fromJson(documentJsonArray, listType)
 
-        return documentJsons.map { documentJson ->
-            Document(
-                fileName = documentJson.fields.fileName.stringValue,
-                fileUrl = documentJson.fields.fileUrl.stringValue
-            )
+            return documentJsons.map { documentJson ->
+                Document(
+                    fileName = documentJson.fields.fileName.stringValue,
+                    fileUrl = documentJson.fields.fileUrl.stringValue
+                )
+            }
         }
     }
 }
