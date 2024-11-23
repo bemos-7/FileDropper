@@ -69,6 +69,7 @@ class AndroidFirebaseImpl : FirebaseRepository {
         uploadTask
             .addOnSuccessListener {
                 Log.d("DeleteFileFromFirebase", "successfully")
+                deleteFileFromFireStore(fileName)
                 onComplete()
             }
             .addOnFailureListener {
@@ -83,7 +84,14 @@ class AndroidFirebaseImpl : FirebaseRepository {
         val fileRef = firestore.collection(FILES).where(Filter.equalTo("fileName", fileName))
         fileRef.get()
             .addOnSuccessListener { documents ->
-                //FIXME
+                documents.forEach { document ->
+                    document.reference.delete()
+                }
+
+                Log.d("DeleteFileFromFireStore", "successfully")
+            }
+            .addOnFailureListener {
+                Log.d("DeleteFileFromFireStore", "error")
             }
     }
 }
