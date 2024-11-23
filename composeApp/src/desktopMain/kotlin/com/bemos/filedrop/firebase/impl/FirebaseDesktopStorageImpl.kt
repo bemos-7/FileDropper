@@ -28,7 +28,7 @@ import java.io.File
 import java.io.IOException
 import java.net.URLEncoder
 
-class FirebaseDesktopStorageImpl() : FirebaseRepository {
+class FirebaseDesktopStorageImpl : FirebaseRepository {
     override fun uploadFile(fileUri: PlatformUriRepository, fileName: String, onComplete: () -> Unit) {
         val filePath = File(fileUri.getUri())
 
@@ -146,5 +146,9 @@ class FirebaseDesktopStorageImpl() : FirebaseRepository {
         } finally {
             client.close()
         }
+    }
+
+    override fun deleteFile(fileName: String, onComplete: () -> Unit) {
+        TODO("Not yet implemented")
     }
 }

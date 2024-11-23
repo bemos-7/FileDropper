@@ -35,6 +35,7 @@ fun PullToRefreshLazyColumn(
     isRefreshing: Boolean,
     onRefresh: () -> Unit,
     onDownload: (String) -> Unit,
+    onLongClick: (String) -> Unit,
     lazyListState: LazyListState = rememberLazyListState()
 ) {
     val pullToRefreshState = rememberPullRefreshState(
@@ -71,7 +72,8 @@ fun PullToRefreshLazyColumn(
             ) {
                 FileListItem(
                     file = it,
-                    onDownload
+                    onDownload,
+                    onLongClick = onLongClick
                 )
             }
         }

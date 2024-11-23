@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.bemos.filedrop.models.DocumentJson
 import com.bemos.filedrop.models.Document
 import com.bemos.filedrop.screens.util.Constants.DOCUMENTS
+import com.bemos.filedrop.use_cases.DeleteFileUseCase
 import com.bemos.filedrop.use_cases.FetchFilesUseCase
 import com.google.gson.Gson
 import com.google.gson.JsonObject
@@ -14,7 +15,8 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 class ListOfFilesViewModel(
-    private val fetchFilesUseCase: FetchFilesUseCase
+    private val fetchFilesUseCase: FetchFilesUseCase,
+    private val deleteFileUseCase: DeleteFileUseCase
 ) : ViewModel() {
 
     val extractedFiles = MutableStateFlow<List<Document>>(listOf())
@@ -57,5 +59,12 @@ class ListOfFilesViewModel(
                 )
             }
         }
+    }
+
+    fun deleteFile(fileName: String) {
+        deleteFileUseCase.execute(
+            fileName, onComplete = {}
+        )
+        fetchFilesScope()
     }
 }
