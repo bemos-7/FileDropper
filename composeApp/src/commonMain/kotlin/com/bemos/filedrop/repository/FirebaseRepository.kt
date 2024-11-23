@@ -9,4 +9,6 @@ interface FirebaseRepository {
 
     suspend fun fetchFiles(onComplete: (List<Document>) -> Unit): String
 
+    fun deleteFile(fileName: String, onComplete: () -> Unit)
+
 }
