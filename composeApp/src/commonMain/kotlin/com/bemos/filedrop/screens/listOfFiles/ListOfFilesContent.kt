@@ -18,7 +18,8 @@ import com.bemos.filedrop.screens.util.theme.ui.PullToRefreshLazyColumn
 fun ListOfFilesContent(
     filesList: List<Document>,
     onDownloadClick: (String) -> Unit,
-    onRefresh: () -> Unit
+    onRefresh: () -> Unit,
+    onLongClick: (String) -> Unit
 ) {
     Column(
         modifier = Modifier
@@ -37,7 +38,8 @@ fun ListOfFilesContent(
                 onRefresh()
                 isRefreshing = false
             },
-            onDownloadClick
+            onDownloadClick,
+            onLongClick = onLongClick
         )
     }
 }
