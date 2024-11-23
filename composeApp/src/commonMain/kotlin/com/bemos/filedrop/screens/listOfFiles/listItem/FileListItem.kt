@@ -1,8 +1,10 @@
 package com.bemos.filedrop.screens.listOfFiles.listItem
 
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -32,14 +34,24 @@ import kotlinproject.composeapp.generated.resources.outline_file_download
 import kotlinproject.composeapp.generated.resources.outline_insert_drive_file
 import org.jetbrains.compose.resources.painterResource
 
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun FileListItem(
     file: Document,
-    onDownloadClick: (String) -> Unit
+    onDownloadClick: (String) -> Unit,
+    onLongClick: (String) -> Unit
 ) {
     Card(
+        modifier = Modifier.combinedClickable(
+            onLongClick = {
+                onLongClick(
+                    file.fileName
+                )
+            },
+            onClick = {},
+        ),
         shape = RoundedCornerShape(15.dp),
-        border = BorderStroke(2.dp, White)
+        border = BorderStroke(2.dp, White),
     ) {
         Spacer(modifier = Modifier.height(20.dp))
         Row(
