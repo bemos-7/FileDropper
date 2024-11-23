@@ -27,5 +27,5 @@ val androidModule = module {
 
     viewModel { UploadFileViewModel(get()) }
 
-    viewModel { ListOfFilesViewModel(get()) }
+    viewModel { ListOfFilesViewModel(get(), get()) }
 }
