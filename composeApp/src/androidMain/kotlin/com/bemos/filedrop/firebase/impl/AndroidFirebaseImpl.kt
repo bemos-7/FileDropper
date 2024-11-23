@@ -8,6 +8,7 @@ import com.bemos.filedrop.models.File
 import com.bemos.filedrop.repository.FirebaseRepository
 import com.bemos.filedrop.screens.util.Constants.FILES
 import com.bemos.filedrop.screens.util.Constants.UPLOADS
+import com.google.firebase.firestore.Filter
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.toObject
 import com.google.firebase.storage.FirebaseStorage
@@ -58,5 +59,31 @@ class AndroidFirebaseImpl : FirebaseRepository {
                 onComplete(uniqueModels)
             }
         return ""
+    }
+
+    override fun deleteFile(fileName: String, onComplete: () -> Unit) {
+        val storage = FirebaseStorage.getInstance()
+        val storageRef = storage.reference
+        val fileRef = storageRef.child("$UPLOADS${fileName}")
+        val uploadTask = fileRef.delete()
+        uploadTask
+            .addOnSuccessListener {
+                Log.d("DeleteFileFromFirebase", "successfully")
+                onComplete()
+            }
+            .addOnFailureListener {
+                Log.d("DeleteFileFromFirebase", "error")
+                onComplete()
+            }
+
+    }
+
+    private fun deleteFileFromFireStore(fileName: String) {
+        val firestore = FirebaseFirestore.getInstance()
+        val fileRef = firestore.collection(FILES).where(Filter.equalTo("fileName", fileName))
+        fileRef.get()
+            .addOnSuccessListener { documents ->
+                //FIXME
+            }
     }
 }
