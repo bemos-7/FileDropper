@@ -1,4 +1,4 @@
-package com.bemos.filedrop.screens.util.theme
+package com.bemos.filedrop.screens.util.theme.ui
 
 import androidx.compose.ui.graphics.Color
 
