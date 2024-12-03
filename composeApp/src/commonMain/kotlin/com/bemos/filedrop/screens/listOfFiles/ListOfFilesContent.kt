@@ -11,7 +11,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.bemos.filedrop.models.Document
-import com.bemos.filedrop.screens.util.theme.Colors.Black
+import com.bemos.filedrop.screens.util.theme.ui.Colors.Black
 import com.bemos.filedrop.screens.util.theme.ui.PullToRefreshLazyColumn
 
 @Composable
