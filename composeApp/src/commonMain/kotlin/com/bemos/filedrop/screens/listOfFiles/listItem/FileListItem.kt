@@ -25,10 +25,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.bemos.filedrop.models.Document
-import com.bemos.filedrop.models.DocumentJson
-import com.bemos.filedrop.screens.util.theme.Colors.Light_Black
-import com.bemos.filedrop.screens.util.theme.Colors.White
+import com.bemos.filedrop.screens.util.theme.ui.Colors.Light_Black
+import com.bemos.filedrop.screens.util.theme.ui.Colors.White
+import com.bemos.filedrop.screens.util.theme.ui.Fonts.GetPixelFyFont
 import kotlinproject.composeapp.generated.resources.Res
 import kotlinproject.composeapp.generated.resources.outline_file_download
 import kotlinproject.composeapp.generated.resources.outline_insert_drive_file
@@ -77,7 +78,9 @@ fun FileListItem(
 
                 Text(
                     text = file.fileName,
-                    color = Color.White
+                    color = Color.White,
+                    fontSize = 18.sp,
+                    fontFamily = GetPixelFyFont()
                 )
             }
             Row(
