@@ -12,8 +12,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.bemos.filedrop.screens.util.theme.Colors
+import com.bemos.filedrop.screens.util.theme.ui.Colors
 import com.bemos.filedrop.screens.util.theme.ui.FButton
+import com.bemos.filedrop.screens.util.theme.ui.Fonts.GetPixelFyFont
 import kotlinproject.composeapp.generated.resources.Res
 import kotlinproject.composeapp.generated.resources.outline_upload_file_24
 import org.jetbrains.compose.resources.painterResource
@@ -60,7 +61,8 @@ fun UploadFileContent(
             content = {
                 Text(
                     text = "files",
-                    color = Colors.White
+                    color = Colors.White,
+                    fontFamily = GetPixelFyFont()
                 )
             }
         )
